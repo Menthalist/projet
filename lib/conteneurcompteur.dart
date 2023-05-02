@@ -1,29 +1,27 @@
-import 'dart:io';
 
 import 'package:ams_mobile/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
+
 
 class conteneurcompteur extends StatelessWidget {
 
 final  String compteur, consom;
- conteneurcompteur({required this.compteur,required this.consom});
+ const conteneurcompteur({super.key, required this.compteur,required this.consom});
+ 
+ 
   @override
   Widget build(BuildContext context) {
     return Container(
-       margin: EdgeInsets.only(top: 20,left: 20),
+       margin: const EdgeInsets.only(top: 20,left: 20),
       width: MediaQuery.of(context).size.width*0.9,
       height: MediaQuery.of(context).size.height*0.06,
       decoration: BoxDecoration(
-        border: Border.all(width: 1.0, color: Color.fromARGB(218, 219, 219, 215) ),
+        border: Border.all(width: 1.0, color: const Color.fromARGB(218, 219, 219, 215) ),
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
               color: Colors.grey,
-                      offset: const Offset(
+                      offset: Offset(
                         1.0,
                         1.0,
                       ),
@@ -32,7 +30,7 @@ final  String compteur, consom;
                     ), //BoxShadow
                     BoxShadow(
                       color: Colors.white,
-                      offset: const Offset(0.0, 0.0),
+                      offset: Offset(0.0, 0.0),
                       blurRadius: 0.0,
                       spreadRadius: 0.0,
                     ), //BoxShoxSh
@@ -40,7 +38,7 @@ final  String compteur, consom;
       ),
       child: Row(
         children: [
-         Align(
+         const Align(
           alignment: Alignment.center,
            child: Padding(padding: EdgeInsets.only(left: 20, ),
            child: Image(image: AssetImage("assets/img/co.png")),),
@@ -49,15 +47,15 @@ final  String compteur, consom;
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(padding: EdgeInsets.only(top: 7,left: 10),
-            child: Text('$compteur ',style: TextStyle(fontFamily: "FuturaLT.ttf",
+            Padding(padding: const EdgeInsets.only(top: 7,left: 10),
+            child: Text('$compteur ',style: const TextStyle(fontFamily: "FuturaLT.ttf",
                               fontSize: 15,
                               fontWeight: FontWeight.w800,
                               ),
                               textAlign: TextAlign.justify, ),),
                               
-           Padding(padding: EdgeInsets.only(left: 10),
-            child: Text('$consom',style: TextStyle(fontFamily: "FuturaLT.ttf",
+           Padding(padding: const EdgeInsets.only(left: 10),
+            child: Text(consom,style: const TextStyle(fontFamily: "FuturaLT.ttf",
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
                               ),
@@ -70,25 +68,21 @@ final  String compteur, consom;
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(padding: EdgeInsets.only(left: 140),),
+                    const Padding(padding: EdgeInsets.only(left: 140),),
                   InkWell(
-                 child:
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child:Image(image: AssetImage("assets/img/bu.png")),),
-                  onTap: (() {
+                 onTap: (() {
                      showModalBottomSheet(
                     context: context,
                     builder: (context) {
                       return Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          camera(),
+                        children: <Widget>[      
+                        const camera(),
                           ListTile(
-                            title: new Text('Modifier',style: TextStyle(fontFamily: "FuturaLT.ttf",
+                            title: const Text('Modifier',style: TextStyle(fontFamily: "FuturaLT.ttf",
                               fontSize: 14,
                               fontWeight: FontWeight.w800,),),
-                            leading: new Icon(Icons.edit,color: Colors.black,),
+                            leading: const Icon(Icons.edit,color: Colors.black,),
                             
                             onTap: () {
                               Navigator.pop(context);
@@ -96,10 +90,10 @@ final  String compteur, consom;
                           ),
                           ListTile(
                             
-                            title: new Text('Supprimer',style: TextStyle(fontFamily: "FuturaLT.ttf",
+                            title: const Text('Supprimer',style: TextStyle(fontFamily: "FuturaLT.ttf",
                               fontSize: 14,
                               fontWeight: FontWeight.w800,),),
-                              leading: new Icon(Icons.delete,color: Colors.black,),
+                              leading: const Icon(Icons.delete,color: Colors.black,),
                             onTap: () {
                               Navigator.pop(context);
                             },
@@ -113,6 +107,10 @@ final  String compteur, consom;
           
           
    } ),
+                 child:
+                  const Align(
+                    alignment: Alignment.centerRight,
+                    child:Image(image: AssetImage("assets/img/bu.png")),),
                     
                      
                     
@@ -124,4 +122,6 @@ final  String compteur, consom;
 
     );
   }
+  
+  
 }

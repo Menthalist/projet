@@ -55,18 +55,18 @@ class _listcleState extends State<listcle> {
       ),
       body: ListView(
         children: [
-          conteneur(text: "CONSTAT D'ETAT DE LIEU"),
+          const conteneur(text: "CONSTAT D'ETAT DE LIEU"),
           Container(
             height: MediaQuery.of(context).size.height * 0.055,
             width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.only(top: 2),
+            margin: const EdgeInsets.only(top: 2),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 7),
+                  padding: const EdgeInsets.only(left: 7),
                   child: InkWell(
-                    child: button(
+                    child: const button(
                         text: "LOGEMENT",
                         couleur1: Color.fromRGBO(17, 45, 194, 0.11), couleur2: Colors.transparent,),
                          onTap: () {
@@ -75,9 +75,9 @@ class _listcleState extends State<listcle> {
                   ),
                 ),
                     Padding(
-                      padding: EdgeInsets.only(left: 5),
+                      padding: const EdgeInsets.only(left: 5),
                       child: InkWell(
-                        child: button(
+                        child: const button(
                         text: "PIECES",
                         couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
                          onTap: () {
@@ -86,35 +86,35 @@ class _listcleState extends State<listcle> {
                       ),
                     ),
                      Padding(
-                      padding: EdgeInsets.only(left: 5),
+                      padding: const EdgeInsets.only(left: 5),
                       child: InkWell(
-                        child: button(
+                        child: const button(
                         text: "RUBRIQUES",
                         couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
                          onTap: () {
                          Navigator.push(
-                context, MaterialPageRoute(builder: (context) => rubriqueliste()));
+                context, MaterialPageRoute(builder: (context) => const rubriqueliste()));
                       },
                       ),
                     ),
                      Padding(
-                      padding: EdgeInsets.only(left: 5),
+                      padding: const EdgeInsets.only(left: 5),
                       child: InkWell(
-                        child: button(
+                        child: const button(
                         text: "CLES",
                         couleur1: Colors.white,couleur2: Colors.black,),
                          onTap: () {
                          Navigator.push(
-                context, MaterialPageRoute(builder: (context) => listcle()));
+                context, MaterialPageRoute(builder: (context) => const listcle()));
                       },
                       ),
                     ),
-                    Padding(padding: EdgeInsets.only(left: 5),
+                    Padding(padding: const EdgeInsets.only(left: 5),
                     child: InkWell(
-                      child: button(text: "COMPTEUR", couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
+                      child: const button(text: "COMPTEUR", couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
                       onTap: () {
                          Navigator.push(
-                context, MaterialPageRoute(builder: (context) => listecompteur()));
+                context, MaterialPageRoute(builder: (context) => const listecompteur()));
                       },
 
                     ),
@@ -123,35 +123,35 @@ class _listcleState extends State<listcle> {
             ),
           ),
           //Padding(padding: EdgeInsets.only()),
-          InkWell(child: conteneurmenu(text1: "CLES", nomb: "3", text2: "AJOUTER"),
+          InkWell(child: const conteneurmenu(text1: "CLES", nomb: "3", text2: "AJOUTER"),
           onTap: () {
              showDialog(
                 context: context,
                 builder: (ctx) => AlertDialog(
-                   title: Text("AJOUTER UNE CLE ", style: TextStyle(fontFamily: "futura.LT",fontSize: 14,fontWeight: FontWeight.w800),textAlign: TextAlign.left,
+                   title: const Text("AJOUTER UNE CLE ", style: TextStyle(fontFamily: "futura.LT",fontSize: 14,fontWeight: FontWeight.w800),textAlign: TextAlign.left,
                   ),
                   content: SingleChildScrollView(
                     child: ListBody(
                     children: [
                       Container(
-            margin: EdgeInsets.only(left: 11),
-            child: Text(
+            margin: const EdgeInsets.only(left: 11),
+            child: const Text(
               "CLE",
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900),
             )),
         Container(
           height: MediaQuery.of(context).size.height * 0.05,
           width: MediaQuery.of(context).size.width * 0.08,
-          margin: EdgeInsets.only(left: 3, right: 3, ),
+          margin: const EdgeInsets.only(left: 3, right: 3, ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
             border: Border.all(
-                width: 1.0, color: Color.fromARGB(218, 219, 219, 215)),
+                width: 1.0, color: const Color.fromARGB(218, 219, 219, 215)),
           ),
           child: Align(
             alignment: Alignment.center,
             child: TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: InputBorder.none,
                 hintText: "Salon Principal",
                 contentPadding: EdgeInsets.only(left: 9,),
@@ -164,22 +164,22 @@ class _listcleState extends State<listcle> {
           ),
         ),
                   Container(
-            margin: EdgeInsets.only(left: 11),
-            child: Text(
+            margin: const EdgeInsets.only(left: 11),
+            child: const Text(
               "NOMBRE",
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900),
             )),
         Container(
           height: MediaQuery.of(context).size.height * 0.05,
           width: MediaQuery.of(context).size.width * 0.08,
-          margin: EdgeInsets.only(left: 5, right: 5, ),
+          margin: const EdgeInsets.only(left: 5, right: 5, ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
             border: Border.all(
-                width: 1.0, color: Color.fromARGB(218, 219, 219, 215)),
+                width: 1.0, color: const Color.fromARGB(218, 219, 219, 215)),
           ),
           child: TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: "2",
              contentPadding: EdgeInsets.only(left: 9,),
@@ -191,22 +191,22 @@ class _listcleState extends State<listcle> {
         ),
 
                   Container(
-            margin: EdgeInsets.only(left: 11),
-            child: Text(
+            margin: const EdgeInsets.only(left: 11),
+            child: const Text(
               "ETAT",
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900),
             )),
         Container(
           height: MediaQuery.of(context).size.height * 0.05,
           width: MediaQuery.of(context).size.width * 0.08,
-          margin: EdgeInsets.only(left: 5, right: 5, top: 5),
+          margin: const EdgeInsets.only(left: 5, right: 5, top: 5),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
             border: Border.all(
-                width: 1.0, color: Color.fromARGB(218, 219, 219, 215)),
+                width: 1.0, color: const Color.fromARGB(218, 219, 219, 215)),
           ),
           child: TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: "CLE NEUVE",
              contentPadding: EdgeInsets.only(left: 9,),
@@ -217,22 +217,22 @@ class _listcleState extends State<listcle> {
           ),
         ),
                   Container(
-            margin: EdgeInsets.only(left: 11),
-            child: Text(
+            margin: const EdgeInsets.only(left: 11),
+            child: const Text(
               "COMMENTAIRE",
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900),
             )),
         Container(
           height: MediaQuery.of(context).size.height * 0.08,
           width: MediaQuery.of(context).size.width * 0.28,
-          margin: EdgeInsets.only(left: 5, right: 5, top: 5),
+          margin: const EdgeInsets.only(left: 5, right: 5, top: 5),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
             border: Border.all(
-                width: 1.0, color: Color.fromARGB(218, 219, 219, 215)),
+                width: 1.0, color: const Color.fromARGB(218, 219, 219, 215)),
           ),
           child: TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: "Clé du Salon Principal",
              contentPadding: EdgeInsets.only(left: 9,),
@@ -244,14 +244,14 @@ class _listcleState extends State<listcle> {
         ),
         InkWell(
           child: Container(
-            margin: EdgeInsets.only(left: 5, right: 5, top: 10),
+            margin: const EdgeInsets.only(left: 5, right: 5, top: 10),
             height: MediaQuery.of(context).size.height * 0.04,
             width: MediaQuery.of(context).size.width * 0.08,
             decoration: BoxDecoration(
-              color: Color(0xFF333333),
+              color: const Color(0xFF333333),
               borderRadius: BorderRadius.circular(6),
             ),
-            child: Align(
+            child: const Align(
                 alignment: Alignment.center,
                 child: Text(
                   "ENREGISTRER",
@@ -260,7 +260,7 @@ class _listcleState extends State<listcle> {
           ),
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => home()));
+                context, MaterialPageRoute(builder: (context) => const home()));
           },
         ),
 

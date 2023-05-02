@@ -1,11 +1,9 @@
-import 'dart:math';
 
 import 'package:ams_mobile/conteneur.dart';
 import 'package:ams_mobile/conteneurcorps.dart';
 import 'package:ams_mobile/etatdelieu/etat_de_lieu_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/painting.dart';
 import '../etatdelieu/etatUI.dart';
 import '../etatdelieu/liste_etat.dart';
 
@@ -17,7 +15,7 @@ class acceuil extends StatefulWidget {
 }
 
 class _acceuilState extends State<acceuil> {
- List<String> _etat=["EDL SORTANT APPROUVE","EDL ENTRANT APPROUVE","EDL SORTANT REPORTE","EDL ENTRANT REPORTE","EDL ENTRANT ANNULE","EDL SORTANT ANNULE"] ;
+ final List<String> _etat=["EDL SORTANT APPROUVE","EDL ENTRANT APPROUVE","EDL SORTANT REPORTE","EDL ENTRANT REPORTE","EDL ENTRANT ANNULE","EDL SORTANT ANNULE"] ;
  String _selectedetat="EDL SORTANT APPROUVE";
   @override
   Widget build(BuildContext context) {
@@ -31,13 +29,13 @@ class _acceuilState extends State<acceuil> {
           Container(
             child: Column(
               children: [
-                conteneur(
+                const conteneur(
                   text: "TABLEAU DE BORD",
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.22,
                   width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.only(left: 10, right: 10, top: 15),
+                  margin: const EdgeInsets.only(left: 10, right: 10, top: 15),
                   decoration: BoxDecoration(
                       boxShadow: const [
                         BoxShadow(
@@ -46,15 +44,15 @@ class _acceuilState extends State<acceuil> {
                             color: Color.fromARGB(15, 240, 96, 96),
                             ),
                       ],
-                      color: Color.fromARGB(15, 240, 96, 96),
+                      color: const Color.fromARGB(15, 240, 96, 96),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
                         width: 4,
-                        color: Color.fromRGBO(221, 4, 4, 0.25),
+                        color: const Color.fromRGBO(221, 4, 4, 0.25),
                       )),
-                  child: Column(
+                  child: const Column(
                     children: [
-                      Row(children: const [
+                      Row(children: [
                         Padding(
                             padding:
                                 EdgeInsets.only(left: 5, bottom: 35, top: 15),
@@ -87,7 +85,7 @@ class _acceuilState extends State<acceuil> {
                           ),
                         )
                       ]),
-                      const Align(
+                      Align(
                           alignment: Alignment.center,
                           child: Text(
                             "864",
@@ -129,7 +127,7 @@ class _acceuilState extends State<acceuil> {
           ),
           Row(
             children: [
-              Padding(
+              const Padding(
                   padding: EdgeInsets.only(left: 13, top: 8),
                   child: Text(
                     "Etats des lieux",
@@ -140,15 +138,13 @@ class _acceuilState extends State<acceuil> {
                     ),
                   )),
               Padding(
-                  padding: EdgeInsets.only(left: 250, top: 10),
+                  padding: const EdgeInsets.only(left: 250, top: 10),
                   child: InkWell(
-                      child: Image(
-                    image: AssetImage("assets/img/vector.png"),
-                  ), onTap: (() {
+                      onTap: (() {
                     showDialog(
                 context: context,
                 builder: (ctx) => AlertDialog(
-                  title: Text("FILTRES PAR ", style: TextStyle(fontFamily: "futura.LT",fontSize: 18,fontWeight: FontWeight.w800),textAlign: TextAlign.left,
+                  title: const Text("FILTRES PAR ", style: TextStyle(fontFamily: "futura.LT",fontSize: 18,fontWeight: FontWeight.w800),textAlign: TextAlign.left,
                   ),
                   content: SingleChildScrollView(
                     child: ListBody(
@@ -166,7 +162,7 @@ class _acceuilState extends State<acceuil> {
                            
                            
                          }),
-                         Text(_etat[i],style: TextStyle(fontFamily: "futura.LT",fontSize: 16,fontWeight: FontWeight.w600),),
+                         Text(_etat[i],style: const TextStyle(fontFamily: "futura.LT",fontSize: 16,fontWeight: FontWeight.w600),),
                          
                     ],
                   )
@@ -180,6 +176,9 @@ class _acceuilState extends State<acceuil> {
                   
                 
                   }),
+                      child: const Image(
+                    image: AssetImage("assets/img/vector.png"),
+                  ),
                   )
                   )
             ], 

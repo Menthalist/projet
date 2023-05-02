@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:ams_mobile/conteneurrubrique.dart';
 import 'package:ams_mobile/list_rubrique.dart';
@@ -55,18 +54,18 @@ class _rubriquelisteState extends State<rubriqueliste> {
       ),
       body:  ListView(
         children: [
-          conteneur(text: "CONSTAT D'ETAT DE LIEU"),
+          const conteneur(text: "CONSTAT D'ETAT DE LIEU"),
           Container(
             height: MediaQuery.of(context).size.height * 0.055,
             width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.only(top: 2),
+            margin: const EdgeInsets.only(top: 2),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 7),
+                  padding: const EdgeInsets.only(left: 7),
                   child: InkWell(
-                    child: button(
+                    child: const button(
                         text: "LOGEMENT",
                         couleur1: Color.fromRGBO(17, 45, 194, 0.11), couleur2: Colors.transparent,),
                          onTap: () {
@@ -75,9 +74,9 @@ class _rubriquelisteState extends State<rubriqueliste> {
                   ),
                 ),
                     Padding(
-                      padding: EdgeInsets.only(left: 5),
+                      padding: const EdgeInsets.only(left: 5),
                       child: InkWell(
-                        child: button(
+                        child: const button(
                         text: "PIECES",
                         couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
                          onTap: () {
@@ -86,21 +85,21 @@ class _rubriquelisteState extends State<rubriqueliste> {
                       ),
                     ),
                      Padding(
-                      padding: EdgeInsets.only(left: 5),
+                      padding: const EdgeInsets.only(left: 5),
                       child: InkWell(
-                        child: button(
+                        child: const button(
                         text: "RUBRIQUES",
                         couleur1: Colors.white,couleur2: Colors.black,),
                          onTap: () {
                          Navigator.push(
-                context, MaterialPageRoute(builder: (context) => rubriqueliste()));
+                context, MaterialPageRoute(builder: (context) => const rubriqueliste()));
                       },
                       ),
                     ),
                      Padding(
-                      padding: EdgeInsets.only(left: 5),
+                      padding: const EdgeInsets.only(left: 5),
                       child: InkWell(
-                        child: button(
+                        child: const button(
                         text: "CLES",
                         couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
                          onTap: () {
@@ -108,12 +107,12 @@ class _rubriquelisteState extends State<rubriqueliste> {
                       },
                       ),
                     ),
-                    Padding(padding: EdgeInsets.only(left: 5),
+                    Padding(padding: const EdgeInsets.only(left: 5),
                     child: InkWell(
-                      child: button(text: "COMPTEUR", couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
+                      child: const button(text: "COMPTEUR", couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
                       onTap: () {
                          Navigator.push(
-                context, MaterialPageRoute(builder: (context) => listecompteur()));
+                context, MaterialPageRoute(builder: (context) => const listecompteur()));
                       },
 
                     ),
@@ -122,7 +121,7 @@ class _rubriquelisteState extends State<rubriqueliste> {
             ),
           ),
           //Padding(padding: EdgeInsets.only()),
-          InkWell(child: conteneurmenu(text1: "Rubriques", nomb: "6", text2: "AJOUTER"),
+          const InkWell(child: conteneurmenu(text1: "Rubriques", nomb: "6", text2: "AJOUTER"),
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,

@@ -1,7 +1,6 @@
 import 'package:ams_mobile/listescles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/material/bottom_navigation_bar.dart';
 
 import '../Acceuil/acceuil.dart';
 import '../pagenavigation/agenda.dart';
@@ -20,13 +19,13 @@ class _homeState extends State<home> {
   int btn = 0;
   /* TextStyle optionStyle =
   TextStyle(fontSize: 80, fontWeight: FontWeight.bold);*/
-  List<Widget> _widgetOptions = <Widget>[
-    acceuil(),
-    agenda(),
-    notification(),
+  final List<Widget> _widgetOptions = <Widget>[
+    const acceuil(),
+    const agenda(),
+    const notification(),
     //notification(),
-    realisation(),
-    profil()
+    const realisation(),
+    const profil()
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -52,7 +51,7 @@ class _homeState extends State<home> {
           ),
            onTap: () {
              Navigator.push(
-                context, MaterialPageRoute(builder: (context) => listcle()));
+                context, MaterialPageRoute(builder: (context) => const listcle()));
            },
           )
           
@@ -82,7 +81,7 @@ class _homeState extends State<home> {
         unselectedItemColor: Colors.black,
         currentIndex: btn,
         onTap: _onItemTapped,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
