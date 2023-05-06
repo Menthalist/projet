@@ -1,3 +1,4 @@
+import 'dart:math';
 
 import 'package:ams_mobile/conteneurrubrique.dart';
 import 'package:ams_mobile/list_rubrique.dart';
@@ -7,6 +8,7 @@ import 'button.dart';
 import 'conteneur.dart';
 import 'conteneurmenu.dart';
 import 'listecompteurs.dart';
+import 'piece.dart';
 class rubriqueliste extends StatefulWidget {
   const rubriqueliste({super.key});
 
@@ -33,13 +35,18 @@ class _rubriquelisteState extends State<rubriqueliste> {
             onTap: () {},
           )
         ],
-        leading: const Padding(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-          child: Icon(
-            Icons.arrow_back,
-            size: 25,
-            color: Colors.black,
+        leading: InkWell(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Icon(
+              Icons.arrow_back,
+              size: 25,
+              color: Colors.black,
+            ),
           ),
+          onTap: () {
+            Navigator.pop(context);
+          },
         ),
         centerTitle: true,
         title: const Text(
@@ -54,18 +61,18 @@ class _rubriquelisteState extends State<rubriqueliste> {
       ),
       body:  ListView(
         children: [
-          const conteneur(text: "CONSTAT D'ETAT DE LIEU"),
+          conteneur(text: "CONSTAT D'ETAT DE LIEU"),
           Container(
             height: MediaQuery.of(context).size.height * 0.055,
             width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(top: 2),
+            margin: EdgeInsets.only(top: 2),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 7),
+                  padding: EdgeInsets.only(left: 7),
                   child: InkWell(
-                    child: const button(
+                    child: button(
                         text: "LOGEMENT",
                         couleur1: Color.fromRGBO(17, 45, 194, 0.11), couleur2: Colors.transparent,),
                          onTap: () {
@@ -74,32 +81,33 @@ class _rubriquelisteState extends State<rubriqueliste> {
                   ),
                 ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 5),
+                      padding: EdgeInsets.only(left: 5),
                       child: InkWell(
-                        child: const button(
+                        child: button(
                         text: "PIECES",
                         couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
                          onTap: () {
-                        
+                         Navigator.push(
+                context, MaterialPageRoute(builder: (context) => piececonteneur()));
                       },
                       ),
                     ),
                      Padding(
-                      padding: const EdgeInsets.only(left: 5),
+                      padding: EdgeInsets.only(left: 5),
                       child: InkWell(
-                        child: const button(
+                        child: button(
                         text: "RUBRIQUES",
                         couleur1: Colors.white,couleur2: Colors.black,),
                          onTap: () {
                          Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const rubriqueliste()));
+                context, MaterialPageRoute(builder: (context) => rubriqueliste()));
                       },
                       ),
                     ),
                      Padding(
-                      padding: const EdgeInsets.only(left: 5),
+                      padding: EdgeInsets.only(left: 5),
                       child: InkWell(
-                        child: const button(
+                        child: button(
                         text: "CLES",
                         couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
                          onTap: () {
@@ -107,12 +115,12 @@ class _rubriquelisteState extends State<rubriqueliste> {
                       },
                       ),
                     ),
-                    Padding(padding: const EdgeInsets.only(left: 5),
+                    Padding(padding: EdgeInsets.only(left: 5),
                     child: InkWell(
-                      child: const button(text: "COMPTEUR", couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
+                      child: button(text: "COMPTEUR", couleur1: Color.fromRGBO(17, 45, 194, 0.11),couleur2: Colors.transparent,),
                       onTap: () {
                          Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const listecompteur()));
+                context, MaterialPageRoute(builder: (context) => listecompteur()));
                       },
 
                     ),
@@ -121,7 +129,7 @@ class _rubriquelisteState extends State<rubriqueliste> {
             ),
           ),
           //Padding(padding: EdgeInsets.only()),
-          const InkWell(child: conteneurmenu(text1: "Rubriques", nomb: "6", text2: "AJOUTER"),
+          InkWell(child: conteneurmenu(text1: "Rubriques", nomb: "6", text2: "AJOUTER"),
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,

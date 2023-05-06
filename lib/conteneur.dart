@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class conteneur extends StatelessWidget {
   final String text;
-  const conteneur({super.key, required this.text});
+  conteneur({required this.text});
 
   @override
   Widget build(BuildContext context) {

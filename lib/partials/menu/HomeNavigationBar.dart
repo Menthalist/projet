@@ -1,31 +1,34 @@
 import 'package:ams_mobile/listescles.dart';
+import 'package:ams_mobile/view/parameters/Parameters.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/src/material/bottom_navigation_bar.dart';
 
-import '../Acceuil/acceuil.dart';
-import '../pagenavigation/agenda.dart';
-import '../pagenavigation/notification.dart';
-import '../pagenavigation/profil.dart';
-import '../pagenavigation/realisation.dart';
+import '../../view/home/Home.dart';
+import '../../pagenavigation/agenda.dart';
+import '../../pagenavigation/notification.dart';
+import '../../pagenavigation/profil.dart';
+import '../../pagenavigation/realisation.dart';
 
-class home extends StatefulWidget {
-  const home({Key? key}) : super(key: key);
+class HomeNavigationBar extends StatefulWidget {
+  const HomeNavigationBar({Key? key}) : super(key: key);
 
   @override
-  State<home> createState() => _homeState();
+  State<HomeNavigationBar> createState() => _HomeNavigationBarState();
 }
 
-class _homeState extends State<home> {
+class _HomeNavigationBarState extends State<HomeNavigationBar> {
   int btn = 0;
   /* TextStyle optionStyle =
   TextStyle(fontSize: 80, fontWeight: FontWeight.bold);*/
   final List<Widget> _widgetOptions = <Widget>[
-    const acceuil(),
+    const Home(),
     const agenda(),
     const notification(),
     //notification(),
     const realisation(),
-    const profil()
+    const profil(),
+    const Parameters()
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -45,27 +48,34 @@ class _homeState extends State<home> {
         backgroundColor: Colors.white,
         actions: [
           InkWell(
-            child:const Padding(
-           padding: EdgeInsets.fromLTRB(0, 0, 15, 0),
-            child:Icon(Icons.settings,size: 25,color: Colors.black,)
-          ),
-           onTap: () {
-             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const listcle()));
-           },
+            child: const Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 15, 0),
+                child: Icon(
+                  Icons.settings,
+                  size: 25,
+                  color: Colors.black,
+                )),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => const listcle()));
+            },
           )
-          
         ],
-        leading:const Padding(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-          child: Icon(
-            Icons.arrow_back,
-            size: 25,
-            color: Colors.black,
+        leading: InkWell(
+          child: const Padding(
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Icon(
+              Icons.arrow_back,
+              size: 25,
+              color: Colors.black,
+            ),
           ),
+          onTap: () {
+            Navigator.pop(context);
+          },
         ),
         centerTitle: true,
-        title:const Text(
+        title: const Text(
           "AMEXPERT",
           //textAlign: TextAlign.right,
           style: TextStyle(
@@ -110,7 +120,6 @@ class _homeState extends State<home> {
           BottomNavigationBarItem(
               icon: Image(
                 image: AssetImage("assets/img/profil.png"),
-                
               ),
               label: ""),
           // BottomNavigationBarItem(icon: Icon(Icons.key,size: 10,)),

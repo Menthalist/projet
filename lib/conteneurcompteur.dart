@@ -1,27 +1,32 @@
+import 'dart:io';
 
 import 'package:ams_mobile/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 
-
+/*class conteneurProvider<compteur_list> extends ChangeNotifier{
+  String compteur,consom;
+}*/
 class conteneurcompteur extends StatelessWidget {
 
 final  String compteur, consom;
- const conteneurcompteur({super.key, required this.compteur,required this.consom});
- 
- 
+ conteneurcompteur({required this.compteur,required this.consom});
   @override
   Widget build(BuildContext context) {
     return Container(
-       margin: const EdgeInsets.only(top: 20,left: 20),
+       margin: EdgeInsets.only(top: 20,left: 20),
       width: MediaQuery.of(context).size.width*0.9,
       height: MediaQuery.of(context).size.height*0.06,
       decoration: BoxDecoration(
-        border: Border.all(width: 1.0, color: const Color.fromARGB(218, 219, 219, 215) ),
+        border: Border.all(width: 1.0, color: Color.fromARGB(218, 219, 219, 215) ),
         borderRadius: BorderRadius.circular(8),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
               color: Colors.grey,
-                      offset: Offset(
+                      offset: const Offset(
                         1.0,
                         1.0,
                       ),
@@ -30,7 +35,7 @@ final  String compteur, consom;
                     ), //BoxShadow
                     BoxShadow(
                       color: Colors.white,
-                      offset: Offset(0.0, 0.0),
+                      offset: const Offset(0.0, 0.0),
                       blurRadius: 0.0,
                       spreadRadius: 0.0,
                     ), //BoxShoxSh
@@ -38,7 +43,7 @@ final  String compteur, consom;
       ),
       child: Row(
         children: [
-         const Align(
+         Align(
           alignment: Alignment.center,
            child: Padding(padding: EdgeInsets.only(left: 20, ),
            child: Image(image: AssetImage("assets/img/co.png")),),
@@ -47,15 +52,15 @@ final  String compteur, consom;
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(padding: const EdgeInsets.only(top: 7,left: 10),
-            child: Text('$compteur ',style: const TextStyle(fontFamily: "FuturaLT.ttf",
+            Padding(padding: EdgeInsets.only(top: 7,left: 10),
+            child: Text('$compteur ',style: TextStyle(fontFamily: "FuturaLT.ttf",
                               fontSize: 15,
                               fontWeight: FontWeight.w800,
                               ),
                               textAlign: TextAlign.justify, ),),
                               
-           Padding(padding: const EdgeInsets.only(left: 10),
-            child: Text(consom,style: const TextStyle(fontFamily: "FuturaLT.ttf",
+           Padding(padding: EdgeInsets.only(left: 10),
+            child: Text('$consom',style: TextStyle(fontFamily: "FuturaLT.ttf",
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
                               ),
@@ -68,21 +73,25 @@ final  String compteur, consom;
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Padding(padding: EdgeInsets.only(left: 140),),
+                    Padding(padding: EdgeInsets.only(left: 140),),
                   InkWell(
-                 onTap: (() {
+                 child:
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child:Image(image: AssetImage("assets/img/bu.png")),),
+                  onTap: (() {
                      showModalBottomSheet(
                     context: context,
                     builder: (context) {
                       return Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[      
-                        const camera(),
+                        children: <Widget>[
+                          camera(),
                           ListTile(
-                            title: const Text('Modifier',style: TextStyle(fontFamily: "FuturaLT.ttf",
+                            title: new Text('Modifier',style: TextStyle(fontFamily: "FuturaLT.ttf",
                               fontSize: 14,
                               fontWeight: FontWeight.w800,),),
-                            leading: const Icon(Icons.edit,color: Colors.black,),
+                            leading: new Icon(Icons.edit,color: Colors.black,),
                             
                             onTap: () {
                               Navigator.pop(context);
@@ -90,10 +99,10 @@ final  String compteur, consom;
                           ),
                           ListTile(
                             
-                            title: const Text('Supprimer',style: TextStyle(fontFamily: "FuturaLT.ttf",
+                            title: new Text('Supprimer',style: TextStyle(fontFamily: "FuturaLT.ttf",
                               fontSize: 14,
                               fontWeight: FontWeight.w800,),),
-                              leading: const Icon(Icons.delete,color: Colors.black,),
+                              leading: new Icon(Icons.delete,color: Colors.black,),
                             onTap: () {
                               Navigator.pop(context);
                             },
@@ -107,10 +116,6 @@ final  String compteur, consom;
           
           
    } ),
-                 child:
-                  const Align(
-                    alignment: Alignment.centerRight,
-                    child:Image(image: AssetImage("assets/img/bu.png")),),
                     
                      
                     
@@ -122,6 +127,4 @@ final  String compteur, consom;
 
     );
   }
-  
-  
 }
